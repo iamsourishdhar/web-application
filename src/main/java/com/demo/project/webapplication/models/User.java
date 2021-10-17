@@ -7,6 +7,10 @@ public class User {
 	public long getUserId() {
 		return userId;
 	}
+	public User()
+	{
+		
+	}
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}

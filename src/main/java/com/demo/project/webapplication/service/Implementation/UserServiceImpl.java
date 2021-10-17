@@ -3,13 +3,20 @@ package com.demo.project.webapplication.service.Implementation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.project.webapplication.entities.UserEntity;
 import com.demo.project.webapplication.models.User;
+import com.demo.project.webapplication.repos.UserRepository;
 import com.demo.project.webapplication.service.IF.UserServiceIF;
 
 @Service
 public class UserServiceImpl implements UserServiceIF {
+	
+	@Autowired
+	UserRepository userRepository;
+	
 	private static List<User> userList = new ArrayList<>();
 	int count=userList.size();
 	static {
@@ -21,6 +28,22 @@ public class UserServiceImpl implements UserServiceIF {
 	
 	@Override
 	public List<User> retreiveAllUsers() {
+		return userList;
+	}
+	
+	@Override
+	public List<User> retreiveAllUsersFromDB() {
+		List<User> userList = new ArrayList<>();
+		List<UserEntity> userEntity = userRepository.findAll();
+		if (null != userEntity && !userEntity.isEmpty()) {
+			userEntity.stream().forEach(obj -> {
+				User user = new User();
+				user.setUserId(obj.getUserId());
+				user.setUserName(obj.getUserName());
+				user.setBirthDay(obj.getBirthDay());
+				userList.add(user);
+			});
+		}
 		return userList;
 	}
 	

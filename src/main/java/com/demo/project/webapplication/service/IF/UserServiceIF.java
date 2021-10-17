@@ -8,6 +8,8 @@ public interface UserServiceIF {
 	
 	List<User> retreiveAllUsers();
 	
+	List<User> retreiveAllUsersFromDB();
+	
 	String addUser(User user)throws Exception;
 
 }

@@ -29,6 +29,12 @@ public class UserController {
 		return userServiceIF.retreiveAllUsers();
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, path = "/jpa/allusers")
+	public List<User> retrieveAllUsersFromDB() {
+		return userServiceIF.retreiveAllUsersFromDB();
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.POST, path = "/addusers")
 	public ResponseEntity<String> addUser(@RequestBody User user) throws Exception {
 		String str = userServiceIF.addUser(user);
