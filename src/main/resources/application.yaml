@@ -1,0 +1,7 @@
+microservices:
+  name: SRM
+  environment: DIT
+  port:
+   - 8001
+   - 8002
+   - 8003
