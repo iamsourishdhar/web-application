@@ -28,6 +28,10 @@ public class UserController {
 	public String printHelloWorld() {
 		return "Hello World";
 	}
+	@RequestMapping(method = RequestMethod.GET, path = "/")
+	public String printWelcome() {
+		return "Welcome to openshift";
+	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/allusers")
 	public List<User> retrieveAllUsers() {
