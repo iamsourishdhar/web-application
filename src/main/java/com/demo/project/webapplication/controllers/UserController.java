@@ -26,7 +26,7 @@ public class UserController {
 		
 	@RequestMapping(method = RequestMethod.GET, path = "/hello-world")
 	public String printHelloWorld() {
-		return "Hello World";
+		return "Hello from the other side";
 	}
 	@RequestMapping(method = RequestMethod.GET, path = "/")
 	public String printWelcome() {
